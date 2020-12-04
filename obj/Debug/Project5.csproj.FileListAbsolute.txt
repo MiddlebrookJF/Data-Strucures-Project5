@@ -1,0 +1,10 @@
+C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.csprojAssemblyReference.cache
+C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.GameForm.resources
+C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.Properties.Resources.resources
+C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.csproj.GenerateResource.cache
+C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.csproj.CoreCompileInputs.cache
+C:\Users\jmidr\source\repos\Project5\bin\Debug\Project5.exe.config
+C:\Users\jmidr\source\repos\Project5\bin\Debug\Project5.exe
+C:\Users\jmidr\source\repos\Project5\bin\Debug\Project5.pdb
+C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.exe
+C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.pdb
