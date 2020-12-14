@@ -8,3 +8,4 @@ C:\Users\jmidr\source\repos\Project5\bin\Debug\Project5.exe
 C:\Users\jmidr\source\repos\Project5\bin\Debug\Project5.pdb
 C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.exe
 C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.pdb
+C:\Users\jmidr\source\repos\Project5\obj\Debug\Project5.SplashForm.resources

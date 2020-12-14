@@ -1,32 +1,41 @@
-﻿using System;
+﻿//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	Project:		Project 5 - Associative Containers
+//	File Name:		GameForm.cs
+//	Description:	Back-end class for the primary Form of the state matching application
+//	Course:			CSCI 2210-940 - Data Structures
+//	Author:			Jeffrey Richards, richardsjm@etsu.edu 
+//	Created:		Thursday, December 3, 2020
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project5
 {
 	/// <summary>
-	/// Class that handles the Game Form and its parts
+	/// Class that handles the Game Form and its parts, which gives the user a state-matching game.
 	/// </summary>
 	/// <seealso cref="System.Windows.Forms.Form" />
 	public partial class GameForm : Form
 	{
 		#region Attributes and Properties
-		Random rand = new Random();                 //Used to randomly load a state
-		public string[] states;                     //Array of state names
-		SortedDictionary<string, string> States;    //Dictionary of States and their Capitals	
-		
+		private Random rand = new Random();                 //Used to randomly load a state
+		private string[] states;                     //Array of state names
+
+		/// <summary>
+		/// Dictionary of States and their Capitals	
+		/// </summary>
+		private SortedDictionary<string, string> States { get; set; }
 		/// <summary>
 		/// Gets or sets the file paths for all 50 state pictures.
 		/// </summary>
-		public string[] StatePictures { get; set; }
-
+		private string[] StatePictures { get; set; }
 		#endregion
 
 		/// <summary>
@@ -43,7 +52,7 @@ namespace Project5
 		}
 
 		/// <summary>
-		/// Handles form loading to populate 
+		/// Handles form loading to populate States and get the game ready
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -70,7 +79,7 @@ namespace Project5
 		}
 
 		/// <summary>
-		/// Disables all.
+		/// Disables the timer and Capitols list box while enabling the Next Question button
 		/// </summary>
 		private void DisableAll()
 		{
@@ -81,7 +90,7 @@ namespace Project5
 		}
 
 		/// <summary>
-		/// Enables all.
+		/// Enables the timer and Capitols list box while disabling the Next Question button to start the next round
 		/// </summary>
 		private void EnableAll()
 		{
@@ -95,7 +104,7 @@ namespace Project5
 		}
 
 		/// <summary>
-		/// Gets the random state with picture.
+		/// Gets the random state for the user to guess, along with its picture
 		/// </summary>
 		private void GetRandomStateWithPicture()
 		{
@@ -106,7 +115,7 @@ namespace Project5
 		}
 
 		/// <summary>
-		/// Gets the state pictures.
+		/// Loads the StatePictures from file
 		/// </summary>
 		private void GetStatePictures()
 		{
@@ -129,7 +138,7 @@ namespace Project5
 		}
 
 		/// <summary>
-		/// Ends the round.
+		/// Ends a round of guessing, adjusting score accordingly.
 		/// </summary>
 		private void EndRound()
 		{
@@ -154,9 +163,13 @@ namespace Project5
 		private void btnNext_Click(object sender, EventArgs e)
 		{
 			EnableAll();
-			//Choose new random State to guess the capital for
 		}
 
+		/// <summary>
+		/// Handles the Tick event of the CountDown control (every 1 second)
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void CountDown_Tick(object sender, EventArgs e)
 		{
 			tbTime.Text = (Int32.Parse(tbTime.Text) - 1).ToString();
@@ -164,10 +177,17 @@ namespace Project5
 				EndRound();
 		}
 
+		/// <summary>
+		/// Handles the Click event of the btnEnd control, which ends the current game.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 		private void btnEnd_Click(object sender, EventArgs e)
 		{
+			//disable necessary controls
 			CountDown.Enabled = false;
 			lbCapitals.Enabled = false;
+			//calculate percent correct from score
 			int attempts = Int32.Parse(tbAttempts.Text);
 			int correct = Int32.Parse(tbCorrect.Text);
 			int percentCorrect;
